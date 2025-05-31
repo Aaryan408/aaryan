@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Github, Linkedin, Mail, Code, User, BookOpen, Award, Phone, ArrowRight, ExternalLink, MapPin, Calendar } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -90,9 +91,23 @@ const Index = () => {
     setIsSubmitting(true);
     
     try {
-      // For now, just show success message
-      // When Supabase is connected, this will send actual emails
-      console.log("Contact form submission:", contactForm);
+      console.log("Sending email with EmailJS...");
+      
+      const templateParams = {
+        from_name: contactForm.name,
+        from_email: contactForm.email,
+        message: contactForm.message,
+        to_name: "Aaryan Shah"
+      };
+
+      const result = await emailjs.send(
+        'service_3ldotwp',
+        'template_xifoicf',
+        templateParams,
+        'EsR3v0Yl8RWJpkX37'
+      );
+
+      console.log('Email sent successfully:', result);
       
       toast({
         title: "Message Sent!",
@@ -107,6 +122,7 @@ const Index = () => {
       });
       
     } catch (error) {
+      console.error('Failed to send email:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
