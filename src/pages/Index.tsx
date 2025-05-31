@@ -1,14 +1,21 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import { Github, Linkedin, Mail, Code, User, BookOpen, Award, Phone, ArrowRight, ExternalLink, MapPin, Calendar } from "lucide-react";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [contactForm, setContactForm] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const skills = {
     "Programming Languages": ["Python", "Java", "C", "C++"],
@@ -49,6 +56,65 @@ const Index = () => {
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleContactFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setContactForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!contactForm.name || !contactForm.email || !contactForm.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(contactForm.email)) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // For now, just show success message
+      // When Supabase is connected, this will send actual emails
+      console.log("Contact form submission:", contactForm);
+      
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your message. I'll get back to you soon!",
+      });
+      
+      // Reset form
+      setContactForm({
+        name: "",
+        email: "",
+        message: ""
+      });
+      
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -420,30 +486,48 @@ const Index = () => {
                     Send a Message
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <div>
-                    <Input 
-                      placeholder="Your Name" 
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-purple-400 transition-colors duration-200"
-                    />
-                  </div>
-                  <div>
-                    <Input 
-                      type="email" 
-                      placeholder="Your Email" 
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-purple-400 transition-colors duration-200"
-                    />
-                  </div>
-                  <div>
-                    <Textarea 
-                      placeholder="Your Message" 
-                      rows={5}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-purple-400 transition-colors duration-200"
-                    />
-                  </div>
-                  <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-purple-500/25">
-                    Send Message
-                  </Button>
+                <CardContent>
+                  <form onSubmit={handleContactSubmit} className="space-y-6">
+                    <div>
+                      <Input 
+                        name="name"
+                        value={contactForm.name}
+                        onChange={handleContactFormChange}
+                        placeholder="Your Name" 
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-purple-400 transition-colors duration-200"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Input 
+                        name="email"
+                        type="email" 
+                        value={contactForm.email}
+                        onChange={handleContactFormChange}
+                        placeholder="Your Email" 
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-purple-400 transition-colors duration-200"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Textarea 
+                        name="message"
+                        value={contactForm.message}
+                        onChange={handleContactFormChange}
+                        placeholder="Your Message" 
+                        rows={5}
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-purple-400 transition-colors duration-200"
+                        required
+                      />
+                    </div>
+                    <Button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
                 </CardContent>
               </Card>
             </div>
