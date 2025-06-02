@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -134,7 +135,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
+      {/* Enhanced background texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/20 via-purple-900/40 to-slate-900/20"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-lg border-b border-white/10">
         <div className="container mx-auto px-6 py-4">
@@ -168,11 +173,12 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden">
-        {/* Background decorative elements */}
+      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20 relative">
+        {/* Enhanced background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-purple-500/20 to-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-blue-500/20 to-purple-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-radial from-purple-600/5 to-transparent rounded-full blur-2xl"></div>
         </div>
         
         <div className="container mx-auto relative z-10">
@@ -204,9 +210,8 @@ const Index = () => {
                   View My Work
                 </Button>
                 <Button 
-                  variant="outline" 
                   onClick={() => scrollToSection("contact")}
-                  className="border-white/20 text-white hover:bg-white/10 text-lg px-8 py-3 backdrop-blur-sm hover:border-purple-400/50 transition-all duration-200"
+                  className="bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-sm border border-white/20 text-white hover:bg-gradient-to-r hover:from-purple-600/90 hover:to-blue-600/90 hover:border-purple-400/50 text-lg px-8 py-3 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
                 >
                   Contact Me
                 </Button>
