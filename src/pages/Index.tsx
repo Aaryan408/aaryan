@@ -402,8 +402,8 @@ const Index = () => {
                     ))}
                   </div>
                   <Button 
-                    variant="outline" 
-                    className="w-full border-white/20 text-white hover:bg-white/10 hover:border-purple-400/50 hover:text-purple-300 transition-all duration-200 group"
+                    onClick={() => window.open('https://github.com/Aaryan408', '_blank')}
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-none transform hover:scale-105 transition-all duration-200 group shadow-lg hover:shadow-purple-500/25"
                   >
                     <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-200" />
                     View on GitHub
@@ -570,7 +570,10 @@ const Index = () => {
                       <p className="text-white/60">shaharyan408@gmail.com</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200">
+                  <div 
+                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                    onClick={() => window.open('https://github.com/Aaryan408', '_blank')}
+                  >
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
                       <Github className="w-6 h-6 text-white" />
                     </div>
@@ -579,7 +582,10 @@ const Index = () => {
                       <p className="text-white/60">github.com/Aaryan408</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200">
+                  <div 
+                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                    onClick={() => window.open('https://linkedin.com/in/aaryanshah-tech', '_blank')}
+                  >
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
                       <Linkedin className="w-6 h-6 text-white" />
                     </div>
@@ -613,10 +619,20 @@ const Index = () => {
               © 2024 Aaryan Shah. All rights reserved.
             </div>
             <div className="flex space-x-6">
-              <Button variant="ghost" size="sm" className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110"
+                onClick={() => window.open('https://github.com/Aaryan408', '_blank')}
+              >
                 <Github className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110"
+                onClick={() => window.open('https://linkedin.com/in/aaryanshah-tech', '_blank')}
+              >
                 <Linkedin className="w-5 h-5" />
               </Button>
               <Button variant="ghost" size="sm" className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110">
