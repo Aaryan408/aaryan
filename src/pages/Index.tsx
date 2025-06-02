@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -293,7 +292,7 @@ const Index = () => {
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {["Communication", "Teamwork", "Time Management", "Problem Solving", "Detail-Oriented"].map((skill) => (
-                        <Badge key={skill} variant="secondary" className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-300 border border-purple-600/30 hover:scale-105 transition-transform duration-200">
+                        <Badge key={skill} className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-300 border border-purple-600/30 hover:scale-105 transition-transform duration-200">
                           {skill}
                         </Badge>
                       ))}
@@ -561,7 +560,10 @@ const Index = () => {
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200">
+                  <div 
+                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                    onClick={() => window.open('mailto:shaharyan408@gmail.com', '_blank')}
+                  >
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
@@ -635,7 +637,12 @@ const Index = () => {
               >
                 <Linkedin className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110"
+                onClick={() => window.open('mailto:shaharyan408@gmail.com', '_blank')}
+              >
                 <Mail className="w-5 h-5" />
               </Button>
             </div>
