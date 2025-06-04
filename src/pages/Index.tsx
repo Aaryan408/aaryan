@@ -184,22 +184,22 @@ const Index = () => {
         
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left animate-fade-in">
+            <div className="text-center lg:text-left animate-fade-in order-2 lg:order-1">
               <div className="mb-6">
                 <Badge className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-300 border-purple-600/30 mb-4 px-4 py-2">
                   Currently Available For Freelance Worldwide
                 </Badge>
               </div>
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
                 Hi, I'm{" "}
                 <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
                   Aaryan Shah
                 </span>
               </h1>
-              <h2 className="text-3xl lg:text-4xl text-white/80 mb-8 font-light">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-white/80 mb-8 font-light">
                 Web Designer & Software Developer
               </h2>
-              <p className="text-xl text-white/60 mb-8 max-w-2xl leading-relaxed">
+              <p className="text-lg md:text-xl text-white/60 mb-8 max-w-2xl leading-relaxed mx-auto lg:mx-0">
                 Dedicated IT enthusiast pursuing MCA at SVGU University with a passion for creating 
                 innovative web solutions and software applications that make a difference.
               </p>
@@ -218,7 +218,7 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end order-1 lg:order-2">
               <div className="relative group">
                 {/* Profile Image */}
                 <div className="relative w-80 h-80 lg:w-96 lg:h-96">
@@ -561,10 +561,10 @@ const Index = () => {
                 </h3>
                 <div className="space-y-4">
                   <div 
-                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer group"
                     onClick={() => window.open('mailto:shaharyan408@gmail.com', '_blank')}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -573,10 +573,10 @@ const Index = () => {
                     </div>
                   </div>
                   <div 
-                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer group"
                     onClick={() => window.open('https://github.com/Aaryan408', '_blank')}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                       <Github className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -585,10 +585,10 @@ const Index = () => {
                     </div>
                   </div>
                   <div 
-                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                    className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer group"
                     onClick={() => window.open('https://linkedin.com/in/aaryanshah-tech', '_blank')}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                       <Linkedin className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -624,26 +624,26 @@ const Index = () => {
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110"
+                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110 group"
                 onClick={() => window.open('https://github.com/Aaryan408', '_blank')}
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-5 h-5 group-hover:rotate-12 transition-transform duration-200" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110"
+                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110 group"
                 onClick={() => window.open('https://linkedin.com/in/aaryanshah-tech', '_blank')}
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110"
+                className="text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110 group"
                 onClick={() => window.open('mailto:shaharyan408@gmail.com', '_blank')}
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5 group-hover:bounce transition-transform duration-200" />
               </Button>
             </div>
           </div>
