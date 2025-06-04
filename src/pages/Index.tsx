@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -182,24 +183,24 @@ const Index = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-radial from-purple-600/5 to-transparent rounded-full blur-2xl"></div>
         </div>
         
-        <div className="container mx-auto relative z-10">
+        <div className="container mx-auto relative z-10 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left animate-fade-in order-2 lg:order-1">
-              <div className="mb-6">
+            <div className="text-center lg:text-left animate-fade-in order-2 lg:order-1 mx-auto lg:mx-0">
+              <div className="mb-6 flex justify-center lg:justify-start">
                 <Badge className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-300 border-purple-600/30 mb-4 px-4 py-2">
                   Currently Available For Freelance Worldwide
                 </Badge>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-center lg:text-left">
                 Hi, I'm{" "}
                 <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
                   Aaryan Shah
                 </span>
               </h1>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl text-white/80 mb-8 font-light">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-white/80 mb-8 font-light text-center lg:text-left">
                 Web Designer & Software Developer
               </h2>
-              <p className="text-lg md:text-xl text-white/60 mb-8 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+              <p className="text-lg md:text-xl text-white/60 mb-8 max-w-2xl leading-relaxed mx-auto lg:mx-0 text-center lg:text-left">
                 Dedicated IT enthusiast pursuing MCA at SVGU University with a passion for creating 
                 innovative web solutions and software applications that make a difference.
               </p>
